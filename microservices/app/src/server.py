@@ -76,7 +76,7 @@ def json_message():
             line = f.readline()
             cnt += 1
 
-    for i in range(num_queries):
+    for i in range(5):
         print(data[prefs[i]])
 
     return flask.jsonify(data)
