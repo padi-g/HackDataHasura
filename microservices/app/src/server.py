@@ -41,7 +41,8 @@ def home():
 def json_message():
 
     rdata = flask.jsonify(flask.request.args.to_dict())
-    print(response)
+    print(flask.request)
+    print(rdata["age"])
     # return flask.jsonify(flask.request.args.to_dict())
     # conversion
 
