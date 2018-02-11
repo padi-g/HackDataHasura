@@ -88,7 +88,7 @@ def home():
 def json_message():
 
     print(flask.request.args.to_dict())
-    categorize(rdata)
+    categorize(flask.request.args.to_dict())
     # return flask.jsonify(flask.request.args.to_dict())
     # conversion
 
