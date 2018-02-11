@@ -4,6 +4,7 @@ from keras.models import model_from_json
 import flask
 from flask import jsonify
 import os
+import json
 
 
 def load_model():
@@ -31,7 +32,8 @@ def load_model():
     loaded_model3.load_weights("src/model3.h5")
 
 
-def categorize(data):
+def categorize(rdata):
+    data = json.loads(rdata)
     if data['age'] < '15':
         data['age'] = 1
     elif data['age'] < '25':
@@ -87,8 +89,8 @@ def home():
 @app.route("/predict", methods=["GET"])
 def json_message():
 
-    print(flask.request.args.to_dict())
-    categorize(flask.request.args.to_dict())
+    rdata = flask.jsonify(flask.request.args.to_dict())
+    categorize(rdata)
     # return flask.jsonify(flask.request.args.to_dict())
     # conversion
 
