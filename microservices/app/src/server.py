@@ -48,11 +48,6 @@ def categorize(data):
     else:
         data[0][1] = 7
 
-    if data[0][2] == "male":
-        data[0][2] = 0
-    else:
-        data[0][2] = 1
-
     if data[0][3] < '2':
         data[0][3] = 1
     elif data[0][3] < '3':
@@ -93,7 +88,7 @@ def json_message():
 
     x_in[0][0] = "4"
     x_in[0][1] = "24"
-    x_in[0][2] = "female"
+    x_in[0][2] = "1"
     x_in[0][3] = "5"
     x_in[0][4] = "50000"
 
