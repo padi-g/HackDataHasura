@@ -89,11 +89,11 @@ def home():
 def json_message():
 
     rdata = flask.jsonify(flask.request.args.to_dict())
-    print(flask.request)
+    #print(flask.request)
     print(rdata.age)
     # return flask.jsonify(flask.request.args.to_dict())
     # conversion
-
+    categorize(rdata)
 
     x_in = np.random.randn(1, 5)
     '''
@@ -104,11 +104,11 @@ def json_message():
     x_in[0][4]=rdata['budget']
     '''
 
-    x_in[0][0] = 1
-    x_in[0][1] = 3
-    x_in[0][2] = 1
-    x_in[0][3] = 4
-    x_in[0][4] = 2
+    x_in[0][0] = rdata.quarter
+    x_in[0][1] = rdata.age
+    x_in[0][2] = rdata.sex
+    x_in[0][3] = rdata.duration
+    x_in[0][4] = rdata.budget
 
     pred1 = loaded_model1.predict(x_in)
     pred2 = loaded_model2.predict(x_in)
