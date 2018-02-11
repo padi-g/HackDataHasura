@@ -4,5 +4,6 @@ gunicorn
 numpy
 keras
 tensorflow
+h5py
 
 # add new packages one per each line
