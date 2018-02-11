@@ -88,8 +88,9 @@ def json_message():
     rdata = flask.request.args.to_dict()
     print(rdata)
     categorize(rdata)
+    return flask.jsonify(rdata)
     # conversion
-
+'''
     x_in = np.random.randn(1,5)
     x_in[0][0]=rdata['quarter']
     x_in[0][1]=rdata['age']
@@ -128,5 +129,5 @@ def json_message():
         print(data[prefs[i]])
 
     return flask.jsonify((data[prefs[2]],data[prefs[3]],data[prefs[4]]))
-
+'''
 load_model()
