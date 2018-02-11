@@ -93,7 +93,7 @@ def json_message():
     print(rdata.age)
     # return flask.jsonify(flask.request.args.to_dict())
     # conversion
-    categorize(rdata)
+    # categorize(rdata)
 
     x_in = np.random.randn(1, 5)
     '''
@@ -104,11 +104,11 @@ def json_message():
     x_in[0][4]=rdata['budget']
     '''
 
-    x_in[0][0] = rdata.quarter
-    x_in[0][1] = rdata.age
-    x_in[0][2] = rdata.sex
-    x_in[0][3] = rdata.duration
-    x_in[0][4] = rdata.budget
+    x_in[0][0] = np.random.randint(4)
+    x_in[0][1] = np.random.randint(7)
+    x_in[0][2] = np.random.randint(2)
+    x_in[0][3] = np.random.randint(6)
+    x_in[0][4] = np.random.randint(6)
 
     pred1 = loaded_model1.predict(x_in)
     pred2 = loaded_model2.predict(x_in)
@@ -136,10 +136,11 @@ def json_message():
             data[cnt] = line.strip()
             line = f.readline()
             cnt += 1
-
-    for i in range(5):
-        print(data[prefs[i]])
-
-    return flask.jsonify((data[prefs[2]], data[prefs[3]], data[prefs[4]]))
+    ans = []
+    for i in range(8):
+        ans.append(data[pref[i]])
+    np.random.shuffle(ans)
+    ans = ans[0:3]
+    return flask.jsonify(ans)
 
 load_model()
