@@ -86,8 +86,8 @@ def home():
 @app.route("/predict", methods=["GET"])
 def json_message():
 	rdata = {}
-    rdata = flask.request.args.to_dict()
-    print(flask.request.args.get("age"))
+	rdata = flask.request.args.to_dict()
+	print(flask.request.args.get("age"))
     #categorize(rdata)
     #return flask.jsonify(rdata)
     # conversion
