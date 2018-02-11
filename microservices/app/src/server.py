@@ -124,7 +124,7 @@ def json_message():
             line = f.readline()
             cnt += 1
     ans = []
-    for i in range(8):
+    for i in range(5):
         ans.append(data[prefs[i]])
     np.random.shuffle(ans)
     ans = ans[0:3]
