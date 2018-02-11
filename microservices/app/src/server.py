@@ -32,17 +32,17 @@ def load_model():
 
 def categorize(data):
 
-	if data['age'] < 15:
+	if data['age'] < '15':
 		data['age'] = 1
-	elif data['age']< 25:
+	elif data['age']< '25':
 		data['age'] = 2
-	elif data['age'] < 35:
+	elif data['age'] < '35':
 		data['age'] = 3
-	elif data['age'] < 45:
+	elif data['age'] < '45':
 		data['age'] = 4
-	elif data['age'] < 55:
+	elif data['age'] < '55':
 		data['age'] = 5
-	elif data['age'] < 65:
+	elif data['age'] < '65':
 		data['age'] = 6
 	else:
 		data['age'] = 7
@@ -52,28 +52,28 @@ def categorize(data):
 	else :
 		data['sex'] = 1
 
-	if data['duration'] < 2:
+	if data['duration'] < '2':
 		data['duration'] = 1
-	elif data['duration'] < 3:
+	elif data['duration'] < '3':
 		data['duration'] = 2
-	elif data['duration'] < 6:
+	elif data['duration'] < '6':
 		data['duration'] = 3
-	elif data['duration'] < 10:
+	elif data['duration'] < '10':
 		data['duration'] = 4
-	elif data['duration'] < 15:
+	elif data['duration'] < '15':
 		data['duration'] = 5
 	else:
 		data['duration'] = 6
 
-	if data['budget'] < 50000:
+	if data['budget'] < '50000':
 		data['budget'] = 1
-	elif data['budget'] < 200000:
+	elif data['budget'] < '200000':
 		data['budget'] = 2
-	elif data['budget'] < 500000:
+	elif data['budget'] < '500000':
 		data['budget'] = 3
-	elif data['budget'] < 2000000:
+	elif data['budget'] < '2000000':
 		data['budget'] = 4
-	elif data['budget'] < 5000000:
+	elif data['budget'] < '5000000':
 		data['budget'] = 5
 	else:
 		data['budget'] = 6
