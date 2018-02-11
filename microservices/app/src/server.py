@@ -30,6 +30,53 @@ def load_model():
 	# load weights into new model
 	loaded_model3.load_weights("src/model3.h5")
 
+def categorize(data):
+
+	if data["age"] < 15:
+		data["age"] = 1
+	elif data["age"]< 25:
+		data["age"] = 2
+	elif data["age"] < 35:
+		data["age"] = 3
+	elif data["age"] < 45:
+		data["age"] = 4
+	elif data["age"] < 55:
+		data["age"] = 5
+	elif data["age"] < 65:
+		data["age"] = 6
+	else:
+		data["age"] = 7
+
+	if data["sex"] == "male":
+		data["sex"] = 0
+	else :
+		data["sex"] = 1
+
+	if data["duration"] < 2:
+		data["duration"] = 1
+	elif data["duration"] < 3:
+		data["duration"] = 2
+	elif data["duration"] < 6:
+		data["duration"] = 3
+	elif data["duration"] < 10:
+		data["duration"] = 4
+	elif data["duration"] < 15:
+		data["duration"] = 5
+	else:
+		data["duration"] = 6
+
+	if data["budget"] < 50000:
+		data["budget"] = 1
+	elif data["budget"] < 200000:
+		data["budget"] = 2
+	elif data["budget"] < 500000:
+		data["budget"] = 3
+	elif data["budget"] < 2000000:
+		data["budget"] = 4
+	elif data["budget"] < 5000000:
+		data["budget"] = 5
+	else:
+		data["budget"] = 6
 
 @app.route("/")
 def home():
@@ -40,14 +87,15 @@ def home():
 def json_message():
     rdata = flask.request.args.to_dict()
 
+    categorize(rdata)
     # conversion
 
-    x_in = np.random.randn(1, 5)
-    x_in[0][0]=1
-    x_in[0][1]=3
-    x_in[0][2]=1
-    x_in[0][3]=4
-    x_in[0][4]=5
+    x_in = np.random.randn(1,5)
+    x_in[0][0]=rdata["quarter"]
+    x_in[0][1]=rdata["age"]
+    x_in[0][2]=rdata["sex"]
+    x_in[0][3]=rdata["duration"]
+    x_in[0][4]=rdata["budget"]
 
     pred1 = loaded_model1.predict(x_in)
     pred2 = loaded_model2.predict(x_in)
@@ -79,6 +127,6 @@ def json_message():
     for i in range(5):
         print(data[prefs[i]])
 
-    return flask.jsonify(data)
+    return flask.jsonify((data[prefs[2]],data[prefs[3]],data[prefs[4]]))
 
 load_model()
