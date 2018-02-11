@@ -33,43 +33,43 @@ def load_model():
 
 
 def categorize(data):
-    if data[0][1] < '15':
+    if data[0][1] < 15:
         data[0][1] = 1
-    elif data[0][1] < '25':
+    elif data[0][1] < 25:
         data[0][1] = 2
-    elif data[0][1] < '35':
+    elif data[0][1] < 35:
         data[0][1] = 3
-    elif data[0][1] < '45':
+    elif data[0][1] < 45:
         data[0][1] = 4
-    elif data[0][1] < '55':
+    elif data[0][1] < 55:
         data[0][1] = 5
-    elif data[0][1] < '65':
+    elif data[0][1] < 65:
         data[0][1] = 6
     else:
         data[0][1] = 7
 
-    if data[0][3] < '2':
+    if data[0][3] < 2:
         data[0][3] = 1
-    elif data[0][3] < '3':
+    elif data[0][3] < 3:
         data[0][3] = 2
-    elif data[0][3] < '6':
+    elif data[0][3] < 6:
         data[0][3] = 3
-    elif data[0][3] < '10':
+    elif data[0][3] < 10:
         data[0][3] = 4
-    elif data[0][3] < '15':
+    elif data[0][3] < 15:
         data[0][3] = 5
     else:
         data[0][3] = 6
 
-    if data[0][4] < '50000':
+    if data[0][4] < 50000:
         data[0][4] = 1
-    elif data[0][4] < '200000':
+    elif data[0][4] < 200000:
         data[0][4] = 2
-    elif data[0][4] < '500000':
+    elif data[0][4] < 500000:
         data[0][4] = 3
-    elif data[0][4] < '2000000':
+    elif data[0][4] < 2000000:
         data[0][4] = 4
-    elif data[0][4] < '5000000':
+    elif data[0][4] < 5000000:
         data[0][4] = 5
     else:
         data[0][4] = 6
@@ -86,11 +86,11 @@ def json_message():
     # print(flask.request)
     x_in = np.random.randn(1, 5)
 
-    x_in[0][0] = "4"
-    x_in[0][1] = "24"
-    x_in[0][2] = "1"
-    x_in[0][3] = "5"
-    x_in[0][4] = "50000"
+    x_in[0][0] = 4
+    x_in[0][1] = 24
+    x_in[0][2] = 1
+    x_in[0][3] = 5
+    x_in[0][4] = 50000
 
     categorize(x_in)
 
