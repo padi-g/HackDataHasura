@@ -1,8 +1,7 @@
+from src import app
 import numpy as np
 from keras.models import model_from_json
 from flask import jsonify
-
-app = flask.Flask(__name__)
 
 def load_model():
 
