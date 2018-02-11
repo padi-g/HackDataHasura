@@ -3,8 +3,6 @@ import numpy as np
 from keras.models import model_from_json
 from flask import jsonify
 
-load_model()
-
 
 def load_model():
     global loaded_model1, loaded_model2, loaded_model3
@@ -79,3 +77,5 @@ def json_message():
         print(data[prefs[i]])
 
     return flask.jsonify(data)
+
+load_model()
