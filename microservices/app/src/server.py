@@ -7,7 +7,7 @@ import os
 
 def load_model():
 	print(os.getcwd())
-    global loaded_model1, loaded_model2, loaded_model3
+    global loaded_model1,loaded_model2,loaded_model3
     json_file = open('microservices/app/src/model1.json', 'r')
     loaded_model_json = json_file.read()
     json_file.close()
@@ -42,11 +42,11 @@ def json_message():
     # conversion
 
     x_in = np.random.randn(1, 5)
-    x_in[0][0] = 1
-    x_in[0][1] = 3
-    x_in[0][2] = 1
-    x_in[0][3] = 4
-    x_in[0][4] = 5
+    x_in[0][0]=1
+    x_in[0][1]=3
+    x_in[0][2]=1
+    x_in[0][3]=4
+    x_in[0][4]=5
 
     pred1 = loaded_model1.predict(x_in)
     pred2 = loaded_model2.predict(x_in)
