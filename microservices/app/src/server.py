@@ -91,11 +91,11 @@ def json_message():
     # print(flask.request)
     x_in = np.random.randn(1, 5)
 
-    x_in[0][0] = rdata.headers['quarter']
-    x_in[0][1] = rdata.headers['age']
-    x_in[0][2] = rdata.headers['sex']
-    x_in[0][3] = rdata.headers['duration']
-    x_in[0][4] = rdata.headers['budget']
+    x_in[0][0] = "4"
+    x_in[0][1] = "24"
+    x_in[0][2] = "female"
+    x_in[0][3] = "5"
+    x_in[0][4] = "50000"
 
     categorize(x_in)
 
