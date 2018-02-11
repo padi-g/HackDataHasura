@@ -128,6 +128,7 @@ def json_message():
     for i in range(5):
         print(data[prefs[i]])
 
-    return flask.jsonify((data[prefs[2]],data[prefs[3]],data[prefs[4]]))
+    #return flask.jsonify((data[prefs[2]],data[prefs[3]],data[prefs[4]]))
+    return flask.jsonify(data)
 
 load_model()
