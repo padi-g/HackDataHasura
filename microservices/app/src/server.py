@@ -41,7 +41,7 @@ def home():
 def json_message():
 
     rdata = flask.jsonify(flask.request.args.to_dict())
-    print(rdata)
+    print(response)
     # return flask.jsonify(flask.request.args.to_dict())
     # conversion
 
