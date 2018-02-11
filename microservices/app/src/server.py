@@ -93,7 +93,7 @@ def json_message():
     x_in = np.random.randn(1,5)
     x_in[0][0]=rdata['quarter']
     x_in[0][1]=rdata['age']
-    x_in[0][2]=rdata["sex"]
+    x_in[0][2]=rdata['sex']
     x_in[0][3]=rdata['duration']
     x_in[0][4]=rdata['budget']
 
