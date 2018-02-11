@@ -85,15 +85,15 @@ def json_message():
     # print(flask.request)
     x_in = np.random.randn(1, 5)
 
-    x_in[0][0] = (float )flask.request.args.get('quarter')
-    x_in[0][1] = (float )flask.request.args.get('age')
+    x_in[0][0] = float(flask.request.args.get('quarter'))
+    x_in[0][1] = float(flask.request.args.get('age'))
     if flask.request.args.get('sex') == 'female':
         x_in[0][2] = 1
     else:
         x_in[0][2] = 0
     
-    x_in[0][3] = (float )flask.request.args.get('duration')
-    x_in[0][4] = (float )flask.request.args.get('budget')
+    x_in[0][3] = float (flask.request.args.get('duration'))
+    x_in[0][4] = float (flask.request.args.get('budget'))
 
     categorize(x_in)
 
