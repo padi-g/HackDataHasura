@@ -68,7 +68,7 @@ def json_message():
     prefs.reverse()
     data = {}
 
-    with open('CountryDB.txt') as f:
+    with open('src/CountryDB.txt') as f:
         cnt = 1
         line = f.readline()
         while line:
