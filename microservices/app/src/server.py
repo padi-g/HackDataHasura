@@ -8,6 +8,7 @@ import os
 
 def load_model():
 	print(os.getcwd())
+	global loaded_model1,loaded_model2,loaded_model3
 	json_file = open('src/model1.json', 'r')
 	loaded_model_json = json_file.read()
 	json_file.close()
