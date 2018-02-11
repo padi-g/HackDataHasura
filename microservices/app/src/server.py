@@ -7,12 +7,12 @@ import os
 
 def load_model():
 	print(os.getcwd())
-    json_file = open('microservices/app/src/model1.json', 'r')
-    loaded_model_json = json_file.read()
-    json_file.close()
-    loaded_model1 = model_from_json(loaded_model_json)
-    # load weights into new model
-    loaded_model1.load_weights("microservices/app/src/model1.h5")
+	json_file = open('microservices/app/src/model1.json', 'r')
+	loaded_model_json = json_file.read()
+	json_file.close()
+	loaded_model1 = model_from_json(loaded_model_json)
+	# load weights into new model
+	loaded_model1.load_weights("microservices/app/src/model1.h5")
 
     json_file = open('microservices/app/src/model2.json', 'r')
     loaded_model_json = json_file.read()
