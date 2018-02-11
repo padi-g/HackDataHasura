@@ -31,53 +31,53 @@ def load_model():
     # load weights into new model
     loaded_model3.load_weights("src/model3.h5")
 
-def categorize(data):    
-    if data.age < '15':
-        data.age = 1
-    elif data.age < '25':
-        data.age = 2
-    elif data.age < '35':
-        data.age = 3
-    elif data.age < '45':
-        data.age = 4
-    elif data.age < '55':
-        data.age = 5
-    elif data.age < '65':
-        data.age = 6
-    else:
-        data.age = 7
 
-    if data.sex == "male":
-        data.sex = 0
+def categorize(data):
+    if data[0][1] < '15':
+        data[0][1] = 1
+    elif data[0][1] < '25':
+        data[0][1] = 2
+    elif data[0][1] < '35':
+        data[0][1] = 3
+    elif data[0][1] < '45':
+        data[0][1] = 4
+    elif data[0][1] < '55':
+        data[0][1] = 5
+    elif data[0][1] < '65':
+        data[0][1] = 6
     else:
-        data.sex = 1
+        data[0][1] = 7
 
-    if data.duration < '2':
-        data.duration = 1
-    elif data.duration < '3':
-        data.duration = 2
-    elif data.duration < '6':
-        data.duration = 3
-    elif data.duration < '10':
-        data.duration = 4
-    elif data.duration < '15':
-        data.duration = 5
+    if data[0][2] == "male":
+        data[0][2] = 0
     else:
-        data.duration = 6
+        data[0][2] = 1
 
-    if data.budget < '50000':
-        data.budget = 1
-    elif data.budget < '200000':
-        data.budget = 2
-    elif data.budget < '500000':
-        data.budget = 3
-    elif data.budget < '2000000':
-        data.budget = 4
-    elif data.budget < '5000000':
-        data.budget = 5
+    if data[0][3] < '2':
+        data[0][3] = 1
+    elif data[0][3] < '3':
+        data[0][3] = 2
+    elif data[0][3] < '6':
+        data[0][3] = 3
+    elif data[0][3] < '10':
+        data[0][3] = 4
+    elif data[0][3] < '15':
+        data[0][3] = 5
     else:
-        data.budget = 6
+        data[0][3] = 6
 
+    if data[0][4] < '50000':
+        data[0][4] = 1
+    elif data[0][4] < '200000':
+        data[0][4] = 2
+    elif data[0][4] < '500000':
+        data[0][4] = 3
+    elif data[0][4] < '2000000':
+        data[0][4] = 4
+    elif data[0][4] < '5000000':
+        data[0][4] = 5
+    else:
+        data[0][4] = 6
 
 
 @app.route("/")
@@ -87,28 +87,17 @@ def home():
 
 @app.route("/predict", methods=["GET"])
 def json_message():
-
     rdata = flask.jsonify(flask.request.args.to_dict())
-    #print(flask.request)
-    print(rdata.age)
-    # return flask.jsonify(flask.request.args.to_dict())
-    # conversion
-    # categorize(rdata)
-
+    # print(flask.request)
     x_in = np.random.randn(1, 5)
-    '''
-    x_in[0][0]=rdata['quarter']
-    x_in[0][1]=rdata['age']
-    x_in[0][2]=rdata['sex']
-    x_in[0][3]=rdata['duration']
-    x_in[0][4]=rdata['budget']
-    '''
 
-    x_in[0][0] = np.random.randint(4)
-    x_in[0][1] = np.random.randint(7)
-    x_in[0][2] = np.random.randint(2)
-    x_in[0][3] = np.random.randint(6)
-    x_in[0][4] = np.random.randint(6)
+    x_in[0][0] = rdata.headers['quarter']
+    x_in[0][1] = rdata.headers['age']
+    x_in[0][2] = rdata.headers['sex']
+    x_in[0][3] = rdata.headers['duration']
+    x_in[0][4] = rdata.headers['budget']
+
+    categorize(x_in)
 
     pred1 = loaded_model1.predict(x_in)
     pred2 = loaded_model2.predict(x_in)
@@ -142,5 +131,6 @@ def json_message():
     np.random.shuffle(ans)
     ans = ans[0:3]
     return flask.jsonify(ans)
+
 
 load_model()
