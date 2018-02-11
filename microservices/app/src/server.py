@@ -138,7 +138,7 @@ def json_message():
             cnt += 1
     ans = []
     for i in range(8):
-        ans.append(data[pref[i]])
+        ans.append(data[prefs[i]])
     np.random.shuffle(ans)
     ans = ans[0:3]
     return flask.jsonify(ans)
